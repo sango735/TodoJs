@@ -1,15 +1,22 @@
 function todo() {
     const form = document.getElementById("todo-form");
     const output = document.getElementById("output-todo");
+    const submit = document.getElementById("todo-submit");
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    form.addEventListener("input", () =>{
         const inputTodo = document.getElementById("input-todo");
         const inputValue =  inputTodo.value;
+        if(inputValue !== ""){
+            submit.disabled = false;
+        }
+    });
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const submitTodo = document.getElementById("input-todo");
+        const submitValue =  submitTodo.value;
         const checkBox = '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">';
-        const listTodo = checkBox + '<label class="form-check-label" for="flexCheckChecked">' + inputValue + '</label></div>';
-        output.insertAdjacentHTML("afterend", listTodo);
+        const listTodo = checkBox + '<label class="form-check-label" for="flexCheckChecked">' + submitValue + '</label></div>';
+        output.insertAdjacentHTML("beforeend", listTodo);
     });
 }
-
 window.addEventListener("load", todo);
