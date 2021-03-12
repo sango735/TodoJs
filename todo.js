@@ -33,6 +33,7 @@ function todo() {
         if(e.target.checked == true){
             deleteTodo.disabled = false;
         }else{
+            deleteTodo.disabled = true;
         }
     });
     }
