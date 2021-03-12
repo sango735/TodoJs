@@ -17,6 +17,7 @@ function todo() {
         const checkBox = '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">';
         const listTodo = checkBox + '<label class="form-check-label" for="flexCheckChecked">' + submitValue + '</label></div>';
         output.insertAdjacentHTML("beforeend", listTodo);
+        form.reset();
     });
 }
 window.addEventListener("load", todo);
