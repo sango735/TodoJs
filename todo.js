@@ -3,7 +3,12 @@ function todo() {
     const output = document.getElementById("output-todo");
     const submit = document.getElementById("todo-submit");
     const inputTodo = document.getElementById("input-todo");
+    const formCheck = document.getElementsByClassName("form-check");
+    const checkBox = document.getElementsByTagName("checkbox");
+    const formLength = formCheck.length;
+    const deleteTodo = document.getElementById("todo-delete");
 
+    console.log(formLength);
     //入力した内容が空白の場合にボタンを押せなくする処理
     form.addEventListener("input", () =>{
         const inputValue =  inputTodo.value;
@@ -22,5 +27,14 @@ function todo() {
         form.reset();
         submit.disabled = true;
     });
+
+    for(let i = 0;i<formLength;i++){
+        formCheck[i].addEventListener("click",(e)=>{
+        if(e.target.checked == true){
+            deleteTodo.disabled = false;
+        }else{
+        }
+    });
+    }
 }
 window.addEventListener("load", todo);
