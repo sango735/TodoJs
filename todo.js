@@ -6,8 +6,10 @@ function todo() {
     form.addEventListener("input", () =>{
         const inputTodo = document.getElementById("input-todo");
         const inputValue =  inputTodo.value;
-        if(inputValue !== ""){
+        if(inputValue != ""){
             submit.disabled = false;
+        }else{
+            submit.disabled = true;
         }
     });
     form.addEventListener("submit", (e) => {
@@ -18,6 +20,7 @@ function todo() {
         const listTodo = checkBox + '<label class="form-check-label" for="flexCheckChecked">' + submitValue + '</label></div>';
         output.insertAdjacentHTML("beforeend", listTodo);
         form.reset();
+        submit.disabled = true;
     });
 }
 window.addEventListener("load", todo);
